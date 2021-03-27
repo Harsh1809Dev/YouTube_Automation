@@ -3,8 +3,12 @@ require("chromedriver");
 const wd = require("selenium-webdriver");
 const browser = new wd.Builder().forBrowser('chrome').build();
 
+async function open_browser(){
+	await browser.get("https://youtube.com");
+
 async function main(){
-    await browser.get("https://youtube.com");
+    //await browser.get("https://youtube.com");
+    await open_browser();
     // await browser.wait(wd.until.elementLocated(wd.By.css("")));
     // let sign_button = await browser.findElements(wd.By.css("role['button']"));
     // console.log(sign_button);
@@ -29,7 +33,7 @@ async function main(){
 	
 	//for playing first video
 	let videos_list = [];
-	let video_url = [];
+	let video_url = [];"ytd-searchbox-spt
 	async function get_video_list(){
 		await browser.wait(wd.until.elementLocated(wd.By.css("a.yt-simple-endpoint.style-scope.ytd-video-renderer")));
 		videos_list = await browser.findElements(wd.By.css("a.yt-simple-endpoint.style-scope.ytd-video-renderer"));
